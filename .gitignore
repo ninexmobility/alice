@@ -4,3 +4,6 @@
 # Temp/Editor
 *.swp
 *.tmp
+
+# Memory session/timestamp dumps (keep daily notes only)
+memory/????-??-??-*.md

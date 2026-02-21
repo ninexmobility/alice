@@ -23,7 +23,12 @@ for f in "${FILES[@]}"; do
 done
 
 if [[ -d "${SRC}/memory" ]]; then
-  rsync -a --delete "${SRC}/memory/" "${DST}/memory/"
+  # Keep only daily memory files (YYYY-MM-DD.md), skip timestamp/session dump files.
+  rsync -a --delete \
+    --include '*/' \
+    --include '????-??-??.md' \
+    --exclude '*' \
+    "${SRC}/memory/" "${DST}/memory/"
 fi
 
 cd "${DST}"
